@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I'm Sorry Shraddha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #ffd6d6, #fff1f1);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    h1 {
+      font-size: 3em;
+      color: #cc0000;
+      font-family: 'Dancing Script', cursive;
+    }
+    p {
+      font-size: 1.2em;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .heart {
+      font-size: 4em;
+      color: red;
+      animation: beat 1s infinite;
+    }
+    form input[type="text"] {
+      width: 60%;
+      padding: 12px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    form input[type="submit"] {
+      margin-top: 10px;
+      padding: 10px 25px;
+      border: none;
+      background-color: #e60000;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+  <div class="heart">❤️</div>
+  <h1>Shraddha, I'm so sorry.</h1>
+  <p>I miss you, babu.<br>– Yours, Bublu 💖</p>
+
+  <form action="/reply" method="post">
+    <input type="text" name="message" placeholder="You can reply here..." />
+    <br><br>
+    <input type="submit" value="Send ❤️">
+  </form>
+
+  <iframe width="0" height="0"
+    src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1&loop=1&playlist=2Vv-BfVoq4g"
+    allow="autoplay"></iframe>
+</body>
+</html>
