@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I'm Sorry, Shraddha 💔</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffe0ec, #ffc1cc);
+      font-family: 'Open Sans', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 100px auto;
+      padding: 40px;
+      background: #fff0f5cc;
+      border-radius: 20px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.2em;
+      color: #d81b60;
+      margin-bottom: 10px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      color: #6a1b9a;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-size: 1.2em;
+      color: #9c27b0;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    /* Floating Hearts */
+    .heart {
+      position: absolute;
+      color: #e91e63;
+      font-size: 24px;
+      animation: float 8s linear infinite;
+      user-select: none;
+      opacity: 0.7;
+    }
+
+    .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 25%; animation-delay: 2s; }
+    .heart:nth-child(3) { left: 40%; animation-delay: 4s; }
+    .heart:nth-child(4) { left: 60%; animation-delay: 1s; }
+    .heart:nth-child(5) { left: 75%; animation-delay: 3s; }
+    .heart:nth-child(6) { left: 90%; animation-delay: 5s; }
+
+    @keyframes float {
+      0% {
+        bottom: -20px;
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-50vh) scale(1.4);
+      }
+      100% {
+        bottom: 100%;
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #d81b60, 0 0 10px #d81b60;
+      }
+      to {
+        text-shadow: 0 0 15px #d81b60, 0 0 30px #ff4081;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating hearts -->
+  <div class="heart">❤️</div>
+  <div class="heart">💗</div>
+  <div class="heart">💕</div>
+  <div class="heart">💖</div>
+  <div class="heart">💘</div>
+  <div class="heart">❤️</div>
+
+  <div class="container">
+    <h1>Shraddha, I'm So Sorry</h1>
+    <p>
+      I miss you deeply, babu.<br>
+      Please forgive me for my mistakes.<br>
+      You're the most important person in my life.<br>
+      I can't imagine a moment without you.
+    </p>
+    <div class="signature">
+      — Yours forever, <strong>Bublu</strong>
+    </div>
+  </div>
+</body>
+</html>
