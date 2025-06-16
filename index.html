@@ -12,7 +12,7 @@
       padding: 0;
       background: linear-gradient(135deg, #ffe0ec, #ffc1cc);
       font-family: 'Open Sans', sans-serif;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     .container {
@@ -48,7 +48,6 @@
       animation: fadeIn 3s ease-in-out;
     }
 
-    /* Floating Hearts */
     .heart {
       position: absolute;
       color: #e91e63;
@@ -66,27 +65,14 @@
     .heart:nth-child(6) { left: 90%; animation-delay: 5s; }
 
     @keyframes float {
-      0% {
-        bottom: -20px;
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(-50vh) scale(1.4);
-      }
-      100% {
-        bottom: 100%;
-        transform: translateY(-100vh) scale(1);
-        opacity: 0;
-      }
+      0% { bottom: -20px; transform: translateY(0) scale(1); }
+      50% { transform: translateY(-50vh) scale(1.4); }
+      100% { bottom: 100%; transform: translateY(-100vh) scale(1); opacity: 0; }
     }
 
     @keyframes glow {
-      from {
-        text-shadow: 0 0 5px #d81b60, 0 0 10px #d81b60;
-      }
-      to {
-        text-shadow: 0 0 15px #d81b60, 0 0 30px #ff4081;
-      }
+      from { text-shadow: 0 0 5px #d81b60, 0 0 10px #d81b60; }
+      to { text-shadow: 0 0 15px #d81b60, 0 0 30px #ff4081; }
     }
 
     @keyframes fadeIn {
@@ -97,6 +83,74 @@
     @keyframes fadeInUp {
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .reply-form {
+      margin-top: 50px;
+      text-align: left;
+    }
+
+    .reply-form h2 {
+      color: #880e4f;
+      font-size: 1.8em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .reply-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .reply-form input,
+    .reply-form textarea {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      resize: vertical;
+    }
+
+    .reply-form button {
+      padding: 12px;
+      font-size: 1em;
+      background-color: #ec407a;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .reply-form button:hover {
+      background-color: #d81b60;
+    }
+
+    .thankyou {
+      display: none;
+      margin-top: 40px;
+      padding: 30px;
+      background-color: #ffffffcc;
+      border-radius: 15px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .thankyou.show {
+      display: block;
+    }
+
+    .thankyou h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      color: #d81b60;
+      margin-bottom: 15px;
+    }
+
+    .thankyou p {
+      font-size: 1.2em;
+      color: #6a1b9a;
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -109,6 +163,7 @@
   <div class="heart">💘</div>
   <div class="heart">❤️</div>
 
+  <!-- Main container -->
   <div class="container">
     <h1>Shraddha, I'm So Sorry</h1>
     <p>
@@ -120,6 +175,52 @@
     <div class="signature">
       — Yours forever, <strong>Bublu</strong>
     </div>
+
+    <!-- Reply form -->
+    <div class="reply-form" id="formSection">
+      <h2>Reply to Bublu 💬</h2>
+      <form id="replyForm">
+        <input type="text" name="name" placeholder="Your name" required />
+        <textarea name="message" rows="4" placeholder="Your message..." required></textarea>
+        <button type="submit">Send Reply</button>
+      </form>
+    </div>
+
+    <!-- Thank you message -->
+    <div class="thankyou" id="thankyouMessage">
+      <h2>Thank You, Shraddha 💖</h2>
+      <p>
+        Your message means the world to me.<br>
+        Thank you for taking the time to reply, for your words, and for being you.<br>
+        I promise to keep loving you, cherishing you, and never stop trying to make you smile.<br><br>
+        You're my everything, now and forever. ❤️
+      </p>
+      <p style="margin-top: 20px; color: #9c27b0;">— With all my heart, <strong>Bublu</strong></p>
+    </div>
   </div>
+
+  <!-- JavaScript for handling form and thank-you message -->
+  <script>
+    document.getElementById("replyForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch("https://formspree.io/f/xnnvvvre", {
+        method: "POST",
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          document.getElementById("formSection").style.display = "none";
+          document.getElementById("thankyouMessage").classList.add("show");
+        } else {
+          alert("Oops! Something went wrong.");
+        }
+      })
+      .catch(() => alert("There was a problem submitting the form."));
+    });
+  </script>
 </body>
 </html>
